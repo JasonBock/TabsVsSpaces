@@ -1,0 +1,2 @@
+# TabsVsSpaces
+This is my code to process a bunch of solutions, reformat the code for tabs or spaces by driving a VS 2017 process with one root .editorconfig, see the file size differences between the two, and then creating Benchmark.NET performance tests to compare compilation times.

@@ -1,0 +1,96 @@
+Should redo for the solution items ONLY as those CS files are the ones that got changed, my current approach takes everything into consideration.
+
+Sizes for Rocks, tab is 752150, space is 837804, difference is 10.2236322576641
+Sizes for Autofac, tab is 343871, space is 391364, difference is 12.1352500485482
+Sizes for AutoMapper, tab is 1086824, space is 1265043, difference is 14.0879796180841
+Sizes for CSLA, tab is 7016146, space is 7367056, difference is 4.76323242282942
+Sizes for Moq, tab is 146647, space is 165338, difference is 11.304721237707
+Sizes for Newtonsoft.Json, tab is 5332586, space is 5978550, difference is 10.8046934457352
+Sizes for AngleSharp, tab is 8582912, space is 9631866, difference is 10.8904546637173
+
+Benchmark test methods
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildCslaWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Csla\tab\Source\csla.net.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildCslaWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Csla\space\Source\csla.net.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildRocksWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Rocks\tab\Rocks.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildRocksWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Rocks\space\Rocks.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildAutofacWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Autofac\tab\Autofac.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildAutofacWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Autofac\space\Autofac.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildAutoMapperWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\AutoMapper\tab\src\AutoMapper.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildAutoMapperWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\AutoMapper\space\src\AutoMapper.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildMoqWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Moq\tab\src\Moq.Sdk.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildMoqWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Moq\space\src\Moq.Sdk.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildNewtonsoft.JsonWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Newtonsoft.Json\tab\Src\Newtonsoft.Json.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildNewtonsoft.JsonWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\Newtonsoft.Json\space\Src\Newtonsoft.Json.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildAngleSharpWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\AngleSharp\tab\src\AngleSharp.Core.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildAngleSharpWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\AngleSharp\space\src\AngleSharp.Core.sln");
+}
+
+Autofac: had issue with some files not having consistent lf-cr endings, which tripped up VS opening the file.
