@@ -15,12 +15,11 @@ namespace TabsVsSpaces
 			// * CSLA (https://github.com/marimerLLC/csla)
 			// * Moq (https://github.com/moq/moq)
 			// * Json.Net (https://github.com/JamesNK/Newtonsoft.Json)
-
-			// In-flight:
 			// * AngleSharp (https://github.com/AngleSharp/AngleSharp)
 			// * NLog (https://github.com/NLog/NLog/)
+			// * NodaTime (https://github.com/nodatime/nodatime)
 			var configuration = new CodeConfiguration(
-				new CodeItemConfiguration("AngleSharp", @"src\AngleSharp.Core.sln"));
+				new CodeItemConfiguration("NodaTime", @"src\NodaTime-All.sln"));
 
 			var reformatters = new Reformatter[configuration.Items.Length];
 

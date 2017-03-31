@@ -176,9 +176,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildException.cs" />
+    <Compile Include="MSBuildException.cs" />
+    <Compile Include="WorkspaceBuildException.cs" />
     <None Include="BuildTestsCopy.cs" />
-    <Compile Include="BuildTests.cs" />
+    <Compile Include="BuildWithMSBuildProcessTests.cs" />
+    <Compile Include="BuildWithWorkspaceTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,6 +7,9 @@ Sizes for CSLA, tab is 7016146, space is 7367056, difference is 4.76323242282942
 Sizes for Moq, tab is 146647, space is 165338, difference is 11.304721237707
 Sizes for Newtonsoft.Json, tab is 5332586, space is 5978550, difference is 10.8046934457352
 Sizes for AngleSharp, tab is 8582912, space is 9631866, difference is 10.8904546637173
+Sizes for NLog, tab is 3980119, space is 4384745, difference is 9.22803948690289
+Sizes for NodaTime, tab is 371130, space is 423255, difference is 12.3152709359606
+
 
 Benchmark test methods
 [Benchmark]
@@ -91,6 +94,30 @@ public async Task<ImmutableList<EmitResult>> BuildAngleSharpWithTabs()
 public async Task<ImmutableList<EmitResult>> BuildAngleSharpWithSpaces()
 {
 	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\AngleSharp\space\src\AngleSharp.Core.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildNLogWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\NLog\tab\src\NLog.netfx45.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildNLogWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\NLog\space\src\NLog.netfx45.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildNodaTimeWithTabs()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\NodaTime\tab\src\NodaTime-All.sln");
+}
+
+[Benchmark]
+public async Task<ImmutableList<EmitResult>> BuildNodaTimeWithSpaces()
+{
+	return await BuildTests.RunCompilation(@"M:\TVSSource\Repos\NodaTime\space\src\NodaTime-All.sln");
 }
 
 Autofac: had issue with some files not having consistent lf-cr endings, which tripped up VS opening the file.
