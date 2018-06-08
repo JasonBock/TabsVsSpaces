@@ -99,9 +99,9 @@ namespace TabsVsSpaces
 				solutionOpenedEvent.WaitOne();
 
 				// HACK: I can't figure out a solid way to really know when VS is "done", 
-				// so I'll wait 10 seconds :(
+				// so I'll wait for Constants.WaitTimes.SolutionOpened :(
 
-				await Console.Out.WriteLineAsync($"Solution loaded, waiting {Constants.WaitTimes.SolutionOpened} seconds...");
+				await Console.Out.WriteLineAsync($"Solution loaded, waiting {Constants.WaitTimes.SolutionOpened} ...");
 				await Task.Delay(Constants.WaitTimes.SolutionOpened);
 
 				var workspace = MSBuildWorkspace.Create();
@@ -119,22 +119,22 @@ namespace TabsVsSpaces
 						{
 							await Console.Out.WriteLineAsync($"Opening {document.FilePath}...");
 							vs.ExecuteCommand("File.OpenFile", "\"" + document.FilePath + "\"");
-							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} seconds...");
+							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} ...");
 							await Task.Delay(Constants.WaitTimes.CommandExecuted);
 
 							await Console.Out.WriteLineAsync($"Formatting {document.FilePath}...");
 							vs.ExecuteCommand("Edit.FormatDocument");
-							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} seconds...");
+							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} ...");
 							await Task.Delay(Constants.WaitTimes.CommandExecuted);
 
 							await Console.Out.WriteLineAsync($"Saving {document.FilePath}...");
 							vs.ExecuteCommand("File.SaveAll");
-							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} seconds...");
+							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} ...");
 							await Task.Delay(Constants.WaitTimes.CommandExecuted);
 
 							await Console.Out.WriteLineAsync($"Closing {document.FilePath}...");
 							vs.ExecuteCommand("File.Close");
-							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} seconds...");
+							await Console.Out.WriteLineAsync($"Waiting {Constants.WaitTimes.CommandExecuted} ...");
 							await Task.Delay(Constants.WaitTimes.CommandExecuted);
 						}
 					}
