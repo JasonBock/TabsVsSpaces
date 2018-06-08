@@ -1,12 +1,13 @@
 ﻿using TabsVsSpaces.Configuration;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace TabsVsSpaces
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static async Task Main(string[] args)
 		{
 			// Done:
 			// * Rocks (https://github.com/jasonbock/rocks)
@@ -26,11 +27,11 @@ namespace TabsVsSpaces
 			for (var i = 0; i < configuration.Items.Length; i++)
 			{
 				reformatters[i] = new Reformatter(configuration.Items[i]);
-				reformatters[i].ReformatAsync().Wait();
+				await reformatters[i].ReformatAsync();
 			}
 
 			var performance = new PerformanceRunner(reformatters);
-			performance.RunAsync().Wait();
+			await performance.RunAsync();
 
 			foreach (var reformatter in reformatters)
 			{

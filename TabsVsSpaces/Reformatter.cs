@@ -11,10 +11,8 @@ namespace TabsVsSpaces
 {
 	public sealed class Reformatter
 	{
-		public Reformatter(CodeItemConfiguration configuration)
-		{
+		public Reformatter(CodeItemConfiguration configuration) => 
 			this.Configuration = configuration;
-		}
 
 		public async Task ReformatAsync()
 		{
@@ -69,12 +67,14 @@ namespace TabsVsSpaces
 				Directory.CreateDirectory(destination);
 			}
 
-			var startInfo = new ProcessStartInfo();
-			startInfo.CreateNoWindow = false;
-			startInfo.UseShellExecute = false;
-			startInfo.FileName = "robocopy";
-			startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-			startInfo.Arguments = $"\"{source}\" \"{destination}\" /E";
+			var startInfo = new ProcessStartInfo
+			{
+				CreateNoWindow = false,
+				UseShellExecute = false,
+				FileName = "robocopy",
+				WindowStyle = ProcessWindowStyle.Hidden,
+				Arguments = $"\"{source}\" \"{destination}\" /E"
+			};
 
 			using (var process = System.Diagnostics.Process.Start(startInfo))
 			{

@@ -176,7 +176,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildWithSyntaxFactoryTests.cs" />
     <Compile Include="MSBuildException.cs" />
+    <Compile Include="ParseExpressionTests.cs" />
     <Compile Include="WorkspaceBuildException.cs" />
     <None Include="BuildTestsCopy.cs" />
     <Compile Include="BuildWithMSBuildProcessTests.cs" />

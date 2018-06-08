@@ -16,10 +16,8 @@ namespace TabsVsSpaces
 
 		private readonly Reformatter[] reformatters;
 
-		public PerformanceRunner(Reformatter[] reformatters)
-		{
+		public PerformanceRunner(Reformatter[] reformatters) => 
 			this.reformatters = reformatters;
-		}
 
 		public async Task RunAsync()
 		{

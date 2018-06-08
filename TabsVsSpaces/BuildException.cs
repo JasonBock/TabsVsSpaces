@@ -9,26 +9,19 @@ namespace TabsVsSpaces
 	public sealed class BuildException
 		: Exception
 	{
-		public BuildException()
-		{
-		}
+		public BuildException() { }
 
-		public BuildException(ImmutableArray<Diagnostic> diagnostics)
-		{
+		public BuildException(ImmutableArray<Diagnostic> diagnostics) => 
 			this.Diagnostics = diagnostics;
-		}
 
-		public BuildException(string message) : base(message)
-		{
-		}
+		public BuildException(string message)
+			: base(message) { }
 
-		public BuildException(string message, Exception innerException) : base(message, innerException)
-		{
-		}
+		public BuildException(string message, Exception innerException)
+			: base(message, innerException) { }
 
-		public BuildException(SerializationInfo info, StreamingContext context) : base(info, context)
-		{
-		}
+		public BuildException(SerializationInfo info, StreamingContext context)
+			: base(info, context) { }
 
 		public ImmutableArray<Diagnostic> Diagnostics { get; }
 	}
